@@ -1,0 +1,66 @@
+<!-- Profile Page -->
+<div class="page" id="page-profile">
+  <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 4px;">Your Profile</h2>
+  <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">Your details will be shared during emergencies</p>
+
+  <form id="profile-form" onsubmit="SafeTravel.trip.saveProfile(event)">
+    <!-- Photo -->
+    <div class="form-group">
+      <label class="form-label">Your Photo</label>
+      <div class="photo-upload" id="profile-photo-upload">
+        <input type="file" accept="image/*" capture="user" onchange="SafeTravel.trip.previewPhoto(this, 'profile-photo-preview')">
+        <div class="photo-upload-icon">📸</div>
+        <div class="photo-upload-text">Tap to take or upload a photo</div>
+        <img id="profile-photo-preview" class="photo-upload-preview" style="display:none;">
+      </div>
+    </div>
+
+    <!-- Basic Details -->
+    <div class="section-label">Personal Details</div>
+    
+    <div class="form-group">
+      <label class="form-label">Full Name *</label>
+      <input type="text" class="form-input" id="profile-name" placeholder="Your full name" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Phone *</label>
+        <input type="tel" class="form-input" id="profile-phone" placeholder="+91 XXXXXXXXXX" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Blood Group</label>
+        <select class="form-select" id="profile-blood">
+          <option value="">Select</option>
+          <option value="A+">A+</option><option value="A-">A-</option>
+          <option value="B+">B+</option><option value="B-">B-</option>
+          <option value="AB+">AB+</option><option value="AB-">AB-</option>
+          <option value="O+">O+</option><option value="O-">O-</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-input" id="profile-email" placeholder="your@email.com">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Medical Info</label>
+      <textarea class="form-textarea" id="profile-medical" placeholder="Allergies, conditions, medications..."></textarea>
+    </div>
+
+    <!-- Emergency Contacts -->
+    <div class="section-label">Emergency Contacts (up to 5)</div>
+    <div id="contacts-list"></div>
+    
+    <button type="button" class="btn btn-ghost btn-sm" onclick="SafeTravel.trip.addContactField()" style="margin-bottom: 20px;">
+      <span class="btn-icon">➕</span> Add Contact
+    </button>
+
+    <!-- Save -->
+    <button type="submit" class="btn btn-primary">
+      <span class="btn-icon">💾</span> Save Profile
+    </button>
+  </form>
+</div>

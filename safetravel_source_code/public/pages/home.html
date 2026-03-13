@@ -1,0 +1,74 @@
+<!-- Home Page -->
+<div class="page" id="page-home">
+  <div class="hero">
+    <div class="hero-icon">🛡️</div>
+    <h1 class="hero-title">SafeTravel</h1>
+    <p class="hero-subtitle">Your safety companion for every journey. Stay connected, stay protected.</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value" id="stat-trips">0</div>
+      <div class="stat-label">Trips</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-safe">0</div>
+      <div class="stat-label">Safe Check-ins</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-hours">0</div>
+      <div class="stat-label">Hours Protected</div>
+    </div>
+  </div>
+
+  <!-- Quick Start -->
+  <button class="btn btn-primary btn-lg" onclick="SafeTravel.navigateTo('trip-setup')" style="margin-bottom:20px;">
+    <span class="btn-icon">🚀</span> Start a New Trip
+  </button>
+
+  <!-- Active Trip Banner -->
+  <div id="active-trip-banner" class="card" style="display:none; cursor:pointer; border-color: var(--accent-green);" onclick="SafeTravel.navigateTo('active-trip')">
+    <div class="card-header">
+      <span class="card-icon">🟢</span>
+      <div>
+        <div class="card-title">Active Trip</div>
+        <div class="card-subtitle" id="active-trip-dest">Tap to view live dashboard</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Emergency Contacts Quick Access -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">📞</span>
+      <div>
+        <div class="card-title">Emergency Contacts</div>
+        <div class="card-subtitle">Quick call your safety circle</div>
+      </div>
+    </div>
+    <div id="home-contacts-list">
+      <div class="empty-state">
+        <div class="empty-state-icon">👤</div>
+        <div class="empty-state-text">No contacts yet. Add them in Profile.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Safety Tips -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">💡</span>
+      <div>
+        <div class="card-title">Safety Tips</div>
+        <div class="card-subtitle">Stay safe while traveling</div>
+      </div>
+    </div>
+    <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.8;">
+      <p>✅ Always share your live location with trusted contacts</p>
+      <p>✅ Keep check-in intervals active during night travel</p>
+      <p>✅ Upload driver & vehicle details before starting</p>
+      <p>✅ Note down the vehicle registration number</p>
+      <p>✅ Memorize emergency numbers: 112, 1091, 181</p>
+    </div>
+  </div>
+</div>

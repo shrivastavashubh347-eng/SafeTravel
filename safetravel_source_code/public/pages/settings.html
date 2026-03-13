@@ -1,0 +1,88 @@
+<!-- Settings Page -->
+<div class="page" id="page-settings">
+  <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 4px;">Settings</h2>
+  <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">Configure your safety preferences</p>
+
+  <!-- Check-in Interval -->
+  <div class="section-label">⏱️ Default Check-in Interval</div>
+  <div class="interval-selector" id="settings-interval">
+    <button type="button" class="interval-option" data-ms="300000" onclick="SafeTravel.settings.setInterval(this)">5 min</button>
+    <button type="button" class="interval-option active" data-ms="600000" onclick="SafeTravel.settings.setInterval(this)">10 min</button>
+    <button type="button" class="interval-option" data-ms="900000" onclick="SafeTravel.settings.setInterval(this)">15 min</button>
+    <button type="button" class="interval-option" data-ms="1800000" onclick="SafeTravel.settings.setInterval(this)">30 min</button>
+  </div>
+
+  <!-- Miss Timeout -->
+  <div class="section-label">⏳ Miss Timeout</div>
+  <div class="interval-selector" id="settings-miss-timeout">
+    <button type="button" class="interval-option" data-ms="30000" onclick="SafeTravel.settings.setMissTimeout(this)">30s</button>
+    <button type="button" class="interval-option active" data-ms="60000" onclick="SafeTravel.settings.setMissTimeout(this)">60s</button>
+    <button type="button" class="interval-option" data-ms="90000" onclick="SafeTravel.settings.setMissTimeout(this)">90s</button>
+  </div>
+
+  <!-- Toggles -->
+  <div class="section-label">🔧 Features</div>
+
+  <div class="toggle-container">
+    <span class="toggle-label">📍 Auto-share live location on trip start</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="setting-auto-share" onchange="SafeTravel.settings.save()">
+      <div class="toggle-track"></div>
+      <div class="toggle-knob"></div>
+    </label>
+  </div>
+
+  <div class="toggle-container">
+    <span class="toggle-label">🔔 Notification sounds</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="setting-notification-sound" checked onchange="SafeTravel.settings.save()">
+      <div class="toggle-track"></div>
+      <div class="toggle-knob"></div>
+    </label>
+  </div>
+
+  <div class="toggle-container">
+    <span class="toggle-label">📳 Vibration feedback</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="setting-vibration" checked onchange="SafeTravel.settings.save()">
+      <div class="toggle-track"></div>
+      <div class="toggle-knob"></div>
+    </label>
+  </div>
+
+  <div class="toggle-container">
+    <span class="toggle-label">🛡️ Route deviation monitoring</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="setting-route-monitor" checked onchange="SafeTravel.settings.save()">
+      <div class="toggle-track"></div>
+      <div class="toggle-knob"></div>
+    </label>
+  </div>
+
+  <!-- Data Management -->
+  <div class="section-label">🗄️ Data & Privacy</div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🔒</span>
+      <div>
+        <div class="card-title">Privacy & Data</div>
+        <div class="card-subtitle">Trip data auto-deletes after 24 hours</div>
+      </div>
+    </div>
+    <button class="btn btn-outline btn-sm" onclick="SafeTravel.settings.clearAllData()" style="margin-top: 8px;">
+      <span class="btn-icon">🗑️</span> Clear All Local Data
+    </button>
+  </div>
+
+  <!-- About -->
+  <div class="card" style="text-align: center;">
+    <div style="font-size: 40px; margin-bottom: 8px;">🛡️</div>
+    <div style="font-size: 16px; font-weight: 800; background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">SafeTravel v1.0</div>
+    <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Your Safety, Our Priority</div>
+    <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
+      Built with ❤️ for traveler safety<br>
+      Emergency: 112 • 1091 • 181 • 1098
+    </div>
+  </div>
+</div>

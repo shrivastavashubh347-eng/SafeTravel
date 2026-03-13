@@ -1,0 +1,77 @@
+<!-- SOS Emergency Page -->
+<div class="page sos-screen" id="page-sos">
+  <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 4px; color: var(--accent-red);">Emergency SOS</h2>
+  <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px;">Press the SOS button or call emergency services directly</p>
+
+  <!-- Big SOS Button -->
+  <button class="sos-big-button" id="sos-trigger-btn" onclick="SafeTravel.sos.trigger('manual')">
+    SOS
+  </button>
+  <p style="font-size: 12px; color: var(--text-muted); text-align: center; margin-bottom: 24px;">
+    Press to alert all emergency contacts with your location
+  </p>
+
+  <!-- Emergency Numbers -->
+  <div class="section-label">📞 Call Emergency Services</div>
+  <div class="emergency-numbers">
+    <a href="tel:112" class="emergency-call-btn">
+      <span class="call-icon">🚔</span>
+      <span class="call-number">112</span>
+      <span class="call-label">Police / All</span>
+    </a>
+    <a href="tel:1091" class="emergency-call-btn">
+      <span class="call-icon">👩‍⚖️</span>
+      <span class="call-number">1091</span>
+      <span class="call-label">Women Helpline</span>
+    </a>
+    <a href="tel:181" class="emergency-call-btn">
+      <span class="call-icon">📞</span>
+      <span class="call-number">181</span>
+      <span class="call-label">Women Helpline</span>
+    </a>
+    <a href="tel:1098" class="emergency-call-btn">
+      <span class="call-icon">👶</span>
+      <span class="call-number">1098</span>
+      <span class="call-label">Child Helpline</span>
+    </a>
+  </div>
+
+  <!-- Quick Share -->
+  <div class="section-label" style="margin-top: 20px;">📤 Share Your Location</div>
+  <div class="share-grid">
+    <button class="share-btn share-whatsapp" onclick="SafeTravel.sos.shareWhatsApp()">
+      <span class="share-btn-icon">💬</span> WhatsApp
+    </button>
+    <button class="share-btn share-sms" onclick="SafeTravel.sos.shareSMS()">
+      <span class="share-btn-icon">📱</span> SMS
+    </button>
+    <button class="share-btn share-copy" onclick="SafeTravel.sos.copyLocation()">
+      <span class="share-btn-icon">📋</span> Copy Location
+    </button>
+    <button class="share-btn share-email" onclick="SafeTravel.sos.shareEmail()">
+      <span class="share-btn-icon">📧</span> Email
+    </button>
+  </div>
+
+  <!-- Alarm Toggle -->
+  <div class="toggle-container" style="margin-top: 16px;">
+    <span class="toggle-label">🔊 Loud Alarm Siren</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="alarm-toggle" onchange="SafeTravel.audio.toggleAlarm(this.checked)">
+      <div class="toggle-track"></div>
+      <div class="toggle-knob"></div>
+    </label>
+  </div>
+
+  <!-- Emergency Report (shown after SOS triggered) -->
+  <div id="sos-report" class="card" style="display:none; border-color: var(--accent-red); margin-top:16px;">
+    <div class="card-header">
+      <span class="card-icon">📋</span>
+      <div>
+        <div class="card-title" style="color: var(--accent-red);">Emergency Report Sent</div>
+        <div class="card-subtitle" id="sos-report-time"></div>
+      </div>
+    </div>
+    <div id="sos-report-details" style="font-size: 13px; color: var(--text-secondary);"></div>
+  </div>
+</div>

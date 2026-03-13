@@ -1,0 +1,87 @@
+<!-- Trip Setup Page -->
+<div class="page" id="page-trip-setup">
+  <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 4px;">Start a Trip</h2>
+  <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">Set your route and safety parameters</p>
+
+  <form id="trip-form" onsubmit="SafeTravel.trip.startTrip(event)">
+    <!-- Map for selecting locations -->
+    <div class="section-label">📍 Route</div>
+    <div class="card" style="padding: 12px;">
+      <div id="trip-setup-map" style="height: 250px; border-radius: 8px; overflow: hidden;"></div>
+      <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px; text-align: center;">
+        Tap on map to set 🟢 Origin (1st click) → 🔴 Destination (2nd click)
+      </p>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Origin</label>
+        <input type="text" class="form-input" id="trip-origin-name" placeholder="Starting point">
+        <input type="hidden" id="trip-origin-lat">
+        <input type="hidden" id="trip-origin-lng">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Destination</label>
+        <input type="text" class="form-input" id="trip-dest-name" placeholder="End point">
+        <input type="hidden" id="trip-dest-lat">
+        <input type="hidden" id="trip-dest-lng">
+      </div>
+    </div>
+
+    <!-- Driver Details -->
+    <div class="section-label">🚗 Driver & Vehicle</div>
+    
+    <div class="form-group">
+      <label class="form-label">Driver Name</label>
+      <input type="text" class="form-input" id="trip-driver-name" placeholder="Driver's name">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Driver Photo</label>
+        <div class="photo-upload" style="padding: 16px;">
+          <input type="file" accept="image/*" capture="environment" id="trip-driver-photo" onchange="SafeTravel.trip.previewPhoto(this, 'driver-photo-preview')">
+          <div class="photo-upload-icon" style="font-size: 28px;">📸</div>
+          <div class="photo-upload-text" style="font-size: 11px;">Driver Photo</div>
+          <img id="driver-photo-preview" class="photo-upload-preview" style="display:none;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Vehicle Photo</label>
+        <div class="photo-upload" style="padding: 16px;">
+          <input type="file" accept="image/*" capture="environment" id="trip-vehicle-photo" onchange="SafeTravel.trip.previewPhoto(this, 'vehicle-photo-preview')">
+          <div class="photo-upload-icon" style="font-size: 28px;">🚘</div>
+          <div class="photo-upload-text" style="font-size: 11px;">Vehicle Photo</div>
+          <img id="vehicle-photo-preview" class="photo-upload-preview" style="display:none;">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Vehicle Number / Plate</label>
+      <input type="text" class="form-input" id="trip-vehicle-number" placeholder="e.g. DL 01 AB 1234" style="text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">
+    </div>
+
+    <!-- Check-in Interval -->
+    <div class="section-label">⏱️ Safety Check-in Interval</div>
+    <div class="interval-selector" id="checkin-interval-selector">
+      <button type="button" class="interval-option" data-ms="300000" onclick="SafeTravel.trip.selectInterval(this)">5 min</button>
+      <button type="button" class="interval-option active" data-ms="600000" onclick="SafeTravel.trip.selectInterval(this)">10 min</button>
+      <button type="button" class="interval-option" data-ms="900000" onclick="SafeTravel.trip.selectInterval(this)">15 min</button>
+      <button type="button" class="interval-option" data-ms="1800000" onclick="SafeTravel.trip.selectInterval(this)">30 min</button>
+    </div>
+
+    <!-- Miss Timeout -->
+    <div class="section-label" style="margin-top: 20px;">⏳ Miss Timeout (auto-SOS if no response)</div>
+    <div class="interval-selector" id="miss-timeout-selector">
+      <button type="button" class="interval-option" data-ms="30000" onclick="SafeTravel.trip.selectMissTimeout(this)">30s</button>
+      <button type="button" class="interval-option active" data-ms="60000" onclick="SafeTravel.trip.selectMissTimeout(this)">60s</button>
+      <button type="button" class="interval-option" data-ms="90000" onclick="SafeTravel.trip.selectMissTimeout(this)">90s</button>
+    </div>
+
+    <!-- Start Button -->
+    <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 28px;">
+      <span class="btn-icon">🛡️</span> Start Protected Trip
+    </button>
+  </form>
+</div>
